@@ -1,0 +1,65 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import Card from '../components/card';
+import { withKnobs, number, boolean, text, optionsKnob as options, select } from "@storybook/addon-knobs";
+
+<Meta title='COMPONENT|Card' component={Card} decorators={[withKnobs]}/>
+
+# Card
+
+<Preview>
+  <Story name='Card' >
+    <Card
+      date={text('Date', Date(Date.now()))}
+      title={text("Titre", "Titre du projet sur une ligne")}
+      isShareable={boolean("Is Shareable", true)}
+      thumbnail={text('Image', "https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687")}
+      text={text('Texte', "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut ligula finibus, porta lorem id, egestas lacus.")}
+      origin={select('Origin', {Twitter: 'twitter', Linkedin: 'linkedin', None: null}, "twitter")}
+      />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Card} />
+
+Card sans image
+
+<Preview>
+  <Story name='Card sans image'>
+      <Card
+      date={Date(Date.now())}
+      title="Titre du projet sur une ligne"
+      isShareable={false}
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut ligula finibus, porta lorem id, egestas lacus."
+      origin='none'
+      />
+  </Story>
+</Preview>
+
+Card texte seul
+
+<Preview>
+  <Story name='Card texte seul'>
+      <Card
+      title="Titre du projet sur une ligne"
+      isShareable={true}
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut ligula finibus, porta lorem id, egestas lacus."
+      origin='none'
+      />
+  </Story>
+</Preview>
+
+Card sans header
+
+<Preview>
+  <Story name='Card sans header '>
+    <Card
+      title="Titre du projet sur une ligne"
+      isShareable={true}
+      thumbnail="https://s.ftcdn.net/v2013/pics/all/curated/RKyaEDwp8J7JKeZWQPuOVWvkUjGQfpCx_cover_580.jpg?r=1a0fc22192d0c808b8bb2b9bcfbf4a45b1793687"
+      text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ut ligula finibus, porta lorem id, egestas lacus."
+      origin='twitter'
+      />
+  </Story>
+</Preview>

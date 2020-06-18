@@ -1,0 +1,29 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks';
+import Test from '../components/test.js';
+import { withKnobs, number, boolean, text, optionsKnob as options } from "@storybook/addon-knobs";
+
+<Meta title='COMPONENT|Test' component={Test} decorators={[withKnobs]}/>
+
+# Composant Test
+
+Level 1
+
+<Preview>
+  <Story name='Test' >
+    <Test
+      color={text("Couleur de fond", "tomato")}
+    />
+  </Story>
+</Preview>
+
+## Props
+
+<Props of={Test} />
+
+Level 1
+
+<Preview>
+  <Story name='Test 1'>
+      <Test color="green" />
+  </Story>
+</Preview>
